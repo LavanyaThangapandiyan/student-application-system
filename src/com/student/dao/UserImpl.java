@@ -38,7 +38,7 @@ Validaition valid=new Validaition();
 	public List<User> userList() throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		Connection con=ConnectionUtil.getConnection();
-		String display="select id,name,email,phone_number from payment";
+		String display="select id,name,email,phone_number from userr";
 		PreparedStatement ps=con.prepareStatement(display);
 		ResultSet rs=ps.executeQuery();
 		ArrayList<User> userList=new ArrayList<>();
@@ -64,9 +64,9 @@ Validaition valid=new Validaition();
 		// TODO Auto-generated method stub
 		Connection con=ConnectionUtil.getConnection();
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Do you want delete User Details \n Enter User Id");
+		System.out.println("Do you want delete User Details \n Enter Userr Id");
 		int userId=sc.nextInt();
-		String delete="delete from user where id=?";
+		String delete="delete from userr where id=?";
 		PreparedStatement ps=con.prepareStatement(delete);
 		ps.setInt(1, userId);
 		int executeUpdate = ps.executeUpdate();
@@ -78,7 +78,7 @@ Validaition valid=new Validaition();
 	public void updateUserName(int userId,String name) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		Connection con=ConnectionUtil.getConnection();
-		String update="update user set name=? where id=?";
+		String update="update userr set name=? where id=?";
 		boolean name1=valid.nameValidation(name);
 		boolean id=valid.idValidation(userId);
 		if(name1==true&&id==true)
@@ -99,7 +99,7 @@ Validaition valid=new Validaition();
 	public void updatePhoneNumber(int userId, String phoneNumber) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		Connection con=ConnectionUtil.getConnection();
-		String update="update user set password=? where id=?";
+		String update="update userr set password=? where id=?";
 		boolean phonenum=valid.phoneNumberValidation(phoneNumber);
 		boolean id=valid.idValidation(userId);
 		if(phonenum==true&&id==true)
@@ -117,7 +117,7 @@ Validaition valid=new Validaition();
 	public void updateEmail(int userId, String email) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		Connection con=ConnectionUtil.getConnection();
-		String update="update user set phone_number=? where id=?";
+		String update="update userr set phone_number=? where id=?";
 		boolean em=valid.emailValidation(email);
 		boolean id=valid.idValidation(userId);
 		if(em==true && id==true)
